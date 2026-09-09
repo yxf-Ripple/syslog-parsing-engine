@@ -1,0 +1,8 @@
+# 本文件为 Stage2 字段规则占位文件（已脱敏）。
+# 运行时由离线学习流程自动生成/覆盖（脚本 scripts/rebuild_stage2.py 或 learn_files.py --stage2）。
+# 字段语义完全来自 LLM 标注（无预置规则），未标注时 patterns 为空。
+patterns: []
+metadata:
+  version: '2.1'
+  last_updated: ''
+  note: type 对齐 stage1 最终 name;字段语义完全来自 LLM 标注(无预置规则)

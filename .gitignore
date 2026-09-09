@@ -1,0 +1,14 @@
+# 本地环境变量（含 API Key），只放本机，勿提交
+.env
+
+# Python 缓存
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 临时目录
+tmp/
+
+# 运行产物（JSONL/错误文件等）
+result/
+*.log

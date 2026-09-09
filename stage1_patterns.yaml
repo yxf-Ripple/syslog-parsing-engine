@@ -1,0 +1,10 @@
+# 本文件为模式库占位文件（已脱敏，不含任何真实日志样本）。
+# 运行时由离线学习流程自动生成/覆盖：
+#     python scripts/learn_files.py --dir <日志目录> --output stage1_patterns.yaml --stage2 stage2_patterns.yaml
+# 未学习时 patterns 为空，在线转化（python -m src.main）将全部行落入未匹配（可用 -e 输出排查）。
+patterns: []
+metadata:
+  version: '1.1'
+  last_updated: ''
+  method: standard_drain
+  llm_fallback_enabled: false
