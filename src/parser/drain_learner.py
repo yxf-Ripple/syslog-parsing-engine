@@ -58,7 +58,7 @@ def force_var(tok: str) -> bool:
     """
     判定 token 是否应强制变量化(即使样本中恰好相同):
     - 类型化 token(PRI/数字/时间/IP/HEX):值必然变化(日期、端口、PRI 等)
-    - 含数字的混合串(4656:、GW032、30HIS03155):设备名/事件ID 等可变值
+    - 含数字的混合串(4656:、DVC01、HOST01):设备名/事件ID 等可变值
     仅无数字的格式词(Security-Auditing: / Jun / - / KEY=)保留常量。
     """
     if is_var(tok):

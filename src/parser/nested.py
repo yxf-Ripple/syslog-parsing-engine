@@ -4,7 +4,7 @@
 嵌套 syslog 剥壳(附加功能,默认关闭,不影响现有输出)
 ----------------------------------------------------
 背景:有些日志的 message 里转发了完整的内层 syslog
-(如天融信 ORIGINAL_DATA="<29>Apr  2 09:31:05 30ES03151 Security-Auditing: 4663: ...")。
+(如天融信 ORIGINAL_DATA="<29>Apr  2 09:31:05 HOST01 Security-Auditing: 4663: ...")。
 
 开启后:对原始行中的嵌套候选(original_data / message_content 值),
 若满足"完整 syslog 形态"(PRI + 时间戳 + hostname),用现有模式库递归解析,

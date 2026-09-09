@@ -55,7 +55,7 @@ def detect_format_category(sample: str) -> str:
         return "generic"
     toks = sample.split()
     if len(toks) >= 3 and _PRI_NUM.match(toks[0]) and _ISO_TS.match(toks[1]):
-        # RFC5424:<25>1 2025-06-19T...Z GW032 ...;message 含 JSON 载荷 -> rfc5424_json
+        # RFC5424:<25>1 2025-06-19T...Z DVC01 ...;message 含 JSON 载荷 -> rfc5424_json
         if _JSON_PAYLOAD_RE.search(sample):
             return "rfc5424_json"
         # 纯文本 RFC5424 example 无细分类型,归 generic
@@ -84,11 +84,11 @@ def detect_format_category(sample: str) -> str:
 def match_semantic_table(tokens: List[str]) -> Optional[Dict[int, str]]:
     """按 token 序列特征匹配预置语义表,返回 {位置: 字段名} 或 None"""
     if len(tokens) >= 3 and _PRI_NUM.match(tokens[0]) and _ISO_TS.match(tokens[1]):
-        # RFC5424: <25>1 2025-06-19T...Z GW032 2 - -
+        # RFC5424: <25>1 2025-06-19T...Z DVC01 2 - -
         return {1: 'timestamp', 2: 'hostname'}
     if len(tokens) >= 6 and _PRI_WORD.match(tokens[0]) and _DAY.match(tokens[1]) \
             and _BSD_TS.match(tokens[2]):
-        # BSD+Windows: <29>Jun 19 15:04:51 30HIS03155 Security-Auditing: 4656:
+        # BSD+Windows: <29>Jun 19 15:04:51 HOST01 Security-Auditing: 4656:
         return {2: 'timestamp', 3: 'hostname', 4: 'program', 5: 'event_id'}
     if len(tokens) >= 4 and _MON.match(tokens[0]) and _DAY.match(tokens[1]) \
             and _BSD_TS.match(tokens[2]) and _IP.match(tokens[3]):
